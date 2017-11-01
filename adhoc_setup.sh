@@ -1,13 +1,19 @@
 #!/bin/sh
-echo "Set up mode Ad-hoc.\n"
 
-echo "INTERFACE: "
+echo "Set up mode Ad-hoc.\n"
+echo "--Example below.--"
+echo "INTERFACE: wlx2c4d5406bbe4"
+echo "IP: 192.168.3.4/24"
+echo "ESSID: adhoc-network"
+echo "------------------\n"
+
+echo -n "INTERFACE: "
 read INTERFACE
 
-echo "IP: "
+echo -n "IP: "
 read IP
 
-echo "ESSID: "
+echo -n "ESSID: "
 read ESSID
 
 sudo service networking stop
@@ -17,3 +23,4 @@ sudo iwconfig $INTERFACE essid $ESSID
 sudo ip link set $INTERFACE up
 sudo ip addr add $IP dev $INTERFACE
 
+	

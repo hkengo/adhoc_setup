@@ -1,7 +1,8 @@
 #!/bin/sh
+
 echo "Set up mode Managed.\n"
 
-echo "INTERFACE: "
+echo -n "INTERFACE: "
 read INTERFACE
 
 sudo service networking start
