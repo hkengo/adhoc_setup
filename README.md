@@ -16,6 +16,7 @@ UBUNTU_CODENAME=xenial
 ```
 
 ## 概要
+通信する端末は同じSSIDを設定する．
 adhoc_setup.shはAd-hocモードを設定する．
 ```
 sh adhoc_setup.sh
