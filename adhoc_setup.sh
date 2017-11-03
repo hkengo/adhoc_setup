@@ -12,13 +12,13 @@ read INTERFACE
 
 echo -n "IP: "
 read IP
-if [ -n "$IP" ]; then
+if [ -z "$IP" ]; then
 	IP="192.168.3.4/24"
 fi
 
 echo -n "ESSID: "
-read ESSIDRAM1
-if [ -n "$ESSID" ]; then
+read ESSID
+if [ -z "$ESSID" ]; then
 	ESSID="adhoc-network"
 fi
 
@@ -29,7 +29,7 @@ sudo iwconfig $INTERFACE essid $ESSID
 sudo ip link set $INTERFACE up
 sudo ip addr add $IP dev $INTERFACE
 
-echo "--Set up below.--"
+echo "\n--Set up below.--"
 echo "INTERFACE: $INTERFACE"
 echo "IP: $IP"
 echo "ESSID: $ESSID"
