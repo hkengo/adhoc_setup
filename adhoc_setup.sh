@@ -14,19 +14,19 @@ echo "------------------\n"
 echo -n "INTERFACE: "
 read INTERFACE
 if [ -z "$INTERFACE" ]; then
-	INTERFACE=DEFAULT_INTERFACE
+	INTERFACE=$DEFAULT_INTERFACE
 fi
 
 echo -n "IP: "
 read IP
 if [ -z "$IP" ]; then
-	IP=DEFAULT_IP
+	IP=$DEFAULT_IP
 fi
 
 echo -n "ESSID: "
 read ESSID
 if [ -z "$ESSID" ]; then
-	ESSID=DEFAULT_ESSID
+	ESSID=$DEFAULT_ESSID
 fi
 
 sudo service networking stop

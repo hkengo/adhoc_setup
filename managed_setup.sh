@@ -10,7 +10,7 @@ echo "-------------------"
 echo -n "INTERFACE: "
 read INTERFACE
 if [ -z "$INTERFACE" ]; then
-	INTERFACE=DEFAULT_INTERFACE
+	INTERFACE=$DEFAULT_INTERFACE
 fi
 
 sudo service networking start
