@@ -1,25 +1,32 @@
 #!/bin/sh
 
+DEFAULT_INTERFACE="wlx88d7f6a48aaa"
+DEFAULT_IP="192.168.3.1/24"
+DEFAULT_ESSID="adhoc-experiment"
+
 echo "Set up mode Ad-hoc.\n"
-echo "--Example below.--"
-echo "INTERFACE: wlx2c4d5406bbe4"
-echo "IP: 192.168.3.4/24"
-echo "ESSID: adhoc-network"
+echo "--Default values.--"
+echo "INTERFACE: $DEFAULT_INTERFACE"
+echo "IP: $DEFAULT_IP"
+echo "ESSID: $DEFAULT_ESSID"
 echo "------------------\n"
 
 echo -n "INTERFACE: "
 read INTERFACE
+if [ -z "$INTERFACE" ]; then
+	INTERFACE=DEFAULT_INTERFACE
+fi
 
 echo -n "IP: "
 read IP
 if [ -z "$IP" ]; then
-	IP="192.168.3.4/24"
+	IP=DEFAULT_IP
 fi
 
 echo -n "ESSID: "
 read ESSID
 if [ -z "$ESSID" ]; then
-	ESSID="adhoc-network"
+	ESSID=DEFAULT_ESSID
 fi
 
 sudo service networking stop
