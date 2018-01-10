@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEFAULT_INTERFACE="wlx88d7f6a48aaa"
+DEFAULT_INTERFACE="wlo1" #"wlx88d7f6a48aaa"
 
 echo "Set up mode Managed.\n"
 echo "--Default values.--"
@@ -13,6 +13,13 @@ if [ -z "$INTERFACE" ]; then
 	INTERFACE=$DEFAULT_INTERFACE
 fi
 
-sudo service networking start
-sudo service network-manager start
+# sudo ip addr flush $DEFAULT_INTERFACE 
+
+sudo ip link set $INTERFACE down
+
 sudo iwconfig $INTERFACE mode Managed
+
+sudo ip link set $INTERFACE up
+sudo ip addr add $IP dev $INTERFACE
+sudo service network-manager start
+# sudo service networking start
